@@ -1,1 +1,81 @@
+# Nmap Commands and Custom Scripts
+# =======================================
+
+## 1. Basic Scans
+1. Scan a single IP:
 nmap 192.168.1.1
+
+2. Scan a range of IPs:
+nmap 192.168.1.1-100
+
+3. Scan an entire subnet:
+nmap 192.168.1.0/24
+
+4. Scan multiple IPs:
+nmap 192.168.1.1 192.168.1.2
+
+5. Scan a hostname:
+nmap example.com
+
+## 2. Port Scans
+1. Scan specific ports:
+nmap -p 22,80,443 192.168.1.1
+
+2. Scan all 65535 ports:
+nmap -p- 192.168.1.1
+
+3. Fast scan (top 100 ports):
+nmap -F 192.168.1.1
+
+4. Scan only TCP ports:
+nmap -sT 192.168.1.1
+
+5. Scan only UDP ports:
+nmap -sU -p 53,123 192.168.1.1
+
+## 3. Service and Version Detection
+1. Detect services and versions:
+nmap -sV 192.168.1.1
+
+2. Aggressive scan (includes version detection, OS detection, and scripts):
+nmap -A 192.168.1.1
+
+## 4. OS Detection
+1. Basic OS detection:
+nmap -O 192.168.1.1
+
+2. OS detection with additional checks:
+nmap -A 192.168.1.1
+
+## 5. Output Options
+1. Save output to a text file:
+nmap -oN output.txt 192.168.1.1
+
+2. Save output in XML format:
+nmap -oX output.xml 192.168.1.1
+
+3. Save output in all formats:
+nmap -oA output 192.168.1.1
+
+## 6. Firewall and Evasion Scans
+1. Scan with a spoofed IP address:
+nmap -S 10.0.0.1 192.168.1.1
+
+2. Scan with a decoy (to confuse firewalls):
+nmap -D RND:10 192.168.1.1
+
+3. Scan using a specific port as source:
+nmap --source-port 53 192.168.1.1
+
+## 7. NSE Commands (Nmap Scripting Engine)
+1. Scan for vulnerabilities:
+nmap --script vuln 192.168.1.1
+
+2. Scan for HTTP security issues:
+nmap --script http-* 192.168.1.1
+
+3. Scan for SMB vulnerabilities:
+nmap --script smb-* 192.168.1.1
+
+4. Scan for malware or backdoors:
+nmap --script malware 192.168.1.1
